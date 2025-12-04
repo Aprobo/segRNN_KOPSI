@@ -13,6 +13,16 @@ GRU 기반의 시계열 모델로 **다음 날 Price 예측하는 모델**입니
 
 ---
 ## 📁 Dataset Structure
+```
+segRNN_KOSPI/
+│
+├── data/
+│     ├── kospi_pvf.csv
+│     ├── kospi_p.csv
+│     ├── raw/
+│         ├── kospi_1.csv
+│         ├── kospi_2.csv
+```
 
 입력 CSV 파일 예시 (`kospi_pvf.csv`):
 
@@ -22,9 +32,29 @@ GRU 기반의 시계열 모델로 **다음 날 Price 예측하는 모델**입니
 | 2010-01-05 | 1696.32 | 7129372  | 0.0041 |
 | ...        | ...     | ...      | ...    |
 
+
 - `Price` : KOSPI 종가
 - `Volume`: 거래량
 - `Fluct` : 변동률 `(P_t - P_(t-1)) / P_(t-1)`
+---
 
 ## Result
-![overview](https://github.com/Aprobo/segRNN_KOPSI.git/result/p/kospi_test_prediction.png)
+Prcie
+![Only Price](./result/p/kospi_test_prediction.png)
+---
+Price + Volume + Fluct
+![PVF](./result/pvf/test_prediction.png)
+---
+
+## Useage
+## 🔧 Environment Setup
+```bash
+conda create -n segRNN python=3.9
+conda activate segRNN
+pip install -r requirements.txt
+```
+## Training
+```bash
+python SegRNN_pvf_train.py
+python SegRNN_p_train.py
+
