@@ -10,6 +10,7 @@ GRU 기반의 시계열 모델로 **다음 날 Price 예측하는 모델**입니
 - PyTorch 기반 GRU 모델 (입력: 7×3 feature, 출력: 다음 날 Price)
 - Train / Val / Test 자동 분리 및 RMSE 평가
 - 예측값을 날짜 인덱스로 복원하여 시각화
+- feature에 따른 성능 비교
 
 ---
 ## 📁 Dataset Structure
@@ -39,6 +40,11 @@ segRNN_KOSPI/
 ---
 
 ## Result
+ Feature |          Method                           | RMSE  ↓       | 
+|:------:|:-----------------------------------------:|:-------------:|
+| 3      | pvf_train                                 | 164.0716      |
+| **1**  | **p_train**                               | **51.8326**   |
+
 Prcie
 ![Only Price](./result/p/kospi_test_prediction.png)
 ---
